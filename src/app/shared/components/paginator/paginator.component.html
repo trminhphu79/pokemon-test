@@ -1,0 +1,6 @@
+<mat-form-field appearance="fill">
+  <mat-label>Show items</mat-label>
+  <mat-select [formControl]="paginator">
+    <mat-option *ngFor="let value of pagination" [value]="value">{{value}}</mat-option>
+  </mat-select>
+</mat-form-field>

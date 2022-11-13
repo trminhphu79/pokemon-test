@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="header" *ngIf="!responsive;else responsiveTemplate">
+    <ng-container *ngFor="let item of menuService.menuItems$ | async">
+      <ng-container *ngIf="item?.sub?.length">
+        <button [matMenuTriggerFor]="nestedMenu" mat-menu-item [matMenuTriggerData]="{ 'items': item.sub }"
+          [routerLink]="item.path">
+          <span class="font-medium text-white">
+            {{ item.name }}
+          </span>
+        </button>
+        <mat-menu #nestedMenu>
+          <ng-template matMenuContent let-items="items">
+            <a *ngFor="let item of items" mat-menu-item>
+              <span class="font-medium">
+                {{ item.name }}
+              </span>
+            </a>
+          </ng-template>
+        </mat-menu>
+      </ng-container>
+
+      <a *ngIf="!item?.sub?.length" mat-menu-item [routerLink]="item.path">
+        <span class="font-medium text-white">
+          {{ item.name }}
+        </span>
+      </a>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #responsiveTemplate>
+  <ng-container *ngFor="let item of menuService.menuItems$ | async">
+    <ng-container *ngIf="item?.sub?.length">
+      <button [matMenuTriggerFor]="nestedMenu" mat-menu-item [matMenuTriggerData]="{ 'items': item.sub }"
+        [routerLink]="item.path">
+        <span class="font-medium">
+          {{ item.name }}
+        </span>
+      </button>
+      <mat-menu #nestedMenu>
+        <ng-template matMenuContent let-items="items">
+          <a *ngFor="let item of items" mat-menu-item>
+            <span class="font-medium">
+              {{ item.name }}
+            </span>
+          </a>
+        </ng-template>
+      </mat-menu>
+    </ng-container>
+
+    <a *ngIf="!item?.sub?.length" mat-menu-item [routerLink]="item.path">
+      <span class="font-medium">
+        {{ item.name }}
+      </span>
+    </a>
+  </ng-container>
+</ng-template>

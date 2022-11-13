@@ -1,0 +1,10 @@
+<div class="pokemon-section-header">
+  <h2>Item Selection</h2>
+</div>
+<div class="items-list">
+  <ng-container *ngFor="let item of itemsService.items$ | async">
+    <div class="items-item">
+      <card-item [item]="item" [content]="''"></card-item>
+    </div>
+  </ng-container>
+</div>

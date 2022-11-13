@@ -1,0 +1,14 @@
+<div class="pokemon-section-header">
+  <h2 class="mb-0">Pokemon Selection</h2>
+  <a mat-raised-button color="primary" [routerLink]="'/pokemon'">View more</a>
+</div>
+<div class="pokemon-list">
+  <ng-container *ngFor="let item of pokemonService.pokemons$ | async">
+    <div class="pokemon-item">
+      <card-item [item]="item" (change)="change($event)"></card-item>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="loader.loading$ | async">
+    <content-loader></content-loader>
+  </ng-container>
+</div>

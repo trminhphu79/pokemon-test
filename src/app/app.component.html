@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="menu-spacer text-center w-100">
+      <span [routerLink]="'/home'" class="cursor-pointer">
+        Pokemon 
+      </span>
+    </div>
+    <div fxShow="true" fxHide.lt-md fxFlex="100" style="width:100%">
+      <pokemon-header></pokemon-header>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="container">
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav style="width:80%">
+      <pokemon-header [responsive]="true"></pokemon-header>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" mat-list-item>Close</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+      <scroll-to-top></scroll-to-top>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

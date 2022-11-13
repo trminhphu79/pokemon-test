@@ -1,0 +1,10 @@
+.scroll-to-top{
+  position: fixed;
+  right: 0;
+  bottom: 30px;
+  display: flex;
+  justify-content: flex-end;
+  button{
+    margin-right: 50px;
+  }
+}

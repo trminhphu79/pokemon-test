@@ -1,0 +1,11 @@
+<mat-card class="example-card">
+  <img mat-card-image [src]="item.image" alt="{{item.name}}" (click)="change.next(item)">
+  <mat-card-content>
+    <p>
+      {{content}}
+    </p>
+    <div>
+      <h4 class="cursor-pointer" (click)="change.next(item)">{{item.name}}</h4>
+    </div>
+  </mat-card-content>
+</mat-card>

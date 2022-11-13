@@ -1,0 +1,9 @@
+<h2>Trailer Selection</h2>
+<swiper [config]="config" class="mySwiper">
+  <ng-container *ngIf="videoIds">
+    <ng-template swiperSlide *ngFor="let id of videoIds;let i = index">
+      <app-youtube-player [videoId]="id"></app-youtube-player>
+    </ng-template>
+  </ng-container>
+</swiper>
+

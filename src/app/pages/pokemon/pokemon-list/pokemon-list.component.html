@@ -1,0 +1,41 @@
+<h2 class="text-center mt-4">Pokemon List</h2>
+<form [formGroup]="searchForm">
+  <div class="search-bar row">
+    <div class="col-lg-10 col-md-9">
+      <mat-form-field appearance="standard">
+        <mat-label>Search</mat-label>
+        <input matInput formControlName="search" placeholder="Search by name..." type="text">
+        <button *ngIf="searchForm.value.search" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-2 col-md-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Show items</mat-label>
+        <mat-select formControlName="paginator">
+          <mat-option *ngFor="let value of pagination" [value]="value">{{value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>
+
+
+<div class="pokemon-list">
+  <ng-container *ngIf="!(pokemonService.loading$ | async ) as loading">
+    <ng-container *ngFor="let item of pokemonService.pokemons$ | async">
+      <div class="pokemon-item">
+        <card-item [item]="item" (change)="openDialog($event)"></card-item>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="pokemonService.loading$ | async">
+    <content-loader></content-loader>
+  </ng-container>
+</div>
+<ng-container *ngIf="pokemonService.emptyData$ | async">
+  <div class="d-flex empty-data">
+    <img src="../../../../assets/image/empty.jpg" alt="">
+  </div>
+</ng-container>

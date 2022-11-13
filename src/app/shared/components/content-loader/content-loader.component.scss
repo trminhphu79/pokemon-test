@@ -1,0 +1,25 @@
+.content-loader {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.gravatar-title {
+	width: 18%;
+	margin-bottom: 20px;
+}
+
+@media screen and (max-width:820px) {
+  .content-loader {
+    .gravatar-title {
+      width: 31%;
+    }
+  }
+}
+@media screen and (max-width:480px) {
+  .content-loader {
+    .gravatar-title {
+      width: 45%;
+    }
+  }
+}
