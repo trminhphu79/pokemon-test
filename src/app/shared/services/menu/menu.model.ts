@@ -19,18 +19,18 @@ export const DefaultMenu = [
   },
   {
     name: "Game / Games version",
-    path: 'games'
+    path: 'home'
   },
   {
     name: "Generations",
-    path: 'generations'
+    path: 'home'
   },
   {
     name: "Locations",
-    path: 'locations'
+    path: 'home'
   },
   {
     name: "Items",
-    path: 'items'
+    path: 'home'
   },
 ]
