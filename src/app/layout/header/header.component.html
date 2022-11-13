@@ -3,7 +3,7 @@
     <ng-container *ngFor="let item of menuService.menuItems$ | async">
       <ng-container *ngIf="item?.sub?.length">
         <button [matMenuTriggerFor]="nestedMenu" mat-menu-item [matMenuTriggerData]="{ 'items': item.sub }"
-          [routerLink]="item.path">
+          (click)="newPage(item)">
           <span class="font-medium text-white">
             {{ item.name }}
           </span>
@@ -32,7 +32,7 @@
   <ng-container *ngFor="let item of menuService.menuItems$ | async">
     <ng-container *ngIf="item?.sub?.length">
       <button [matMenuTriggerFor]="nestedMenu" mat-menu-item [matMenuTriggerData]="{ 'items': item.sub }"
-        [routerLink]="item.path">
+        (click)="newPage(item)">
         <span class="font-medium">
           {{ item.name }}
         </span>

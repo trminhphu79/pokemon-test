@@ -1,11 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BaseService } from "../api/base-api.service";
-import { HttpClient } from '@angular/common/http';
-import { ModelItem } from "./item.model";
-import { BehaviorSubject, switchMap, forkJoin, map, Observable } from "rxjs";
-import { ModelPokemon } from "../pokemon/pokemon.model";
-import { ModelNameUrl } from "../model/model-name-url";
-import { Endpoint } from "../api/resource";
+import {  Observable } from "rxjs";
 import { ModelCard } from "../model/card.model";
 import { CoreStateService } from "../state.service";
 import { ItemsApi } from "../api/items-api.service";

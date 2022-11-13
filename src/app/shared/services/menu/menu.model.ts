@@ -1,7 +1,7 @@
 export interface ModelMenu {
   name: string,
   sub?: Array<{ name: string }>,
-  path:string
+  path?:string
 }
 export enum MenuName {
   Home = "Home",
@@ -19,18 +19,14 @@ export const DefaultMenu = [
   },
   {
     name: "Game / Games version",
-    path: 'home'
   },
   {
     name: "Generations",
-    path: 'home'
   },
   {
     name: "Locations",
-    path: 'home'
   },
   {
     name: "Items",
-    path: 'home'
   },
 ]
